@@ -1,0 +1,194 @@
+# based upon https://github.com/recantha/scroller/blob/master/pwm_leds.py
+
+# Import necessary libraries
+import time, threading, random
+from gpiozero import LED, PWMLED
+
+# Set-up LEDs
+led_2 = PWMLED(2)
+led_3 = PWMLED(3)
+led_4 = PWMLED(4)
+led_5 = PWMLED(5)
+led_6 = PWMLED(6)
+led_7 = PWMLED(7)
+led_8 = PWMLED(8)
+led_9 = PWMLED(9)
+led_10 = PWMLED(10)
+led_11 = PWMLED(11)
+led_12 = PWMLED(12)
+led_13 = PWMLED(13)
+led_14 = PWMLED(14)
+led_15 = PWMLED(15)
+led_16 = PWMLED(16)
+led_17 = PWMLED(17)
+led_18 = PWMLED(18)
+led_19 = PWMLED(19)
+led_20 = PWMLED(20)
+led_21 = PWMLED(21)
+led_22 = PWMLED(22)
+led_23 = PWMLED(23)
+led_24 = PWMLED(24)
+led_25 = PWMLED(25)
+led_26 = PWMLED(26)
+led_27 = PWMLED(27)
+#led_28 = PWMLED(28)
+
+# Helper function to iterate over a float
+def frange(start, stop, step):
+        i = start
+
+        if (start < stop):
+                while i <= stop:
+                        yield i
+                        i += step
+                        # For some reason, += doesn't always add an exact decimal, so we have to round the value
+                        i = round(i, 1)
+        else:
+                while i >= stop:
+                        yield i
+                        i += step
+                        # For some reason, += doesn't always add an exact decimal, so we have to round the value
+                        i = round(i, 1)
+
+class RandomLED1(threading.Thread):
+        def __init__(self, threadID, name):
+                threading.Thread.__init__(self)
+                self.threadID = threadID
+                self.name = name
+
+        def run(self):
+                while True:
+                        led_list = [led_2,led_3,led_4,led_5,led_6,led_7,led_8,led_9,led_10,led_11,led_12,led_13,led_14,led_15,led_16,led_17,led_18,led_19,led_20,led_21,led_22,led_23,led_24,led_25,led_26,led_27]
+                        the_led = random.choice(led_list)
+                        self.fade_out_led(the_led, 0.03)
+                        time.sleep(0.3)
+                        self.fade_in_led(the_led, 0.02)
+                        time.sleep(0.3)
+
+        # PWM the LED value from 0 to 1 (or from 1 to 0) with a 0.1 step
+        def fade_in_led(self, led, speed):
+                for i in frange(0.0, 1.0, 0.1):
+                        led.value = i
+                        time.sleep(speed)
+
+        def fade_out_led(self, led, speed):
+                for i in frange(1.0, 0.0, -0.1):
+                        led.value = i
+                        time.sleep(speed)
+
+class RandomLED2(threading.Thread):
+        def __init__(self, threadID, name):
+                threading.Thread.__init__(self)
+                self.threadID = threadID
+                self.name = name
+
+        def run(self):
+                while True:
+                        led_list = [led_2,led_3,led_4,led_5,led_6,led_7,led_8,led_9,led_10,led_11,led_12,led_13,led_14,led_15,led_16,led_17,led_18,led_19,led_20,led_21,led_22,led_23,led_24,led_25,led_26,led_27]
+                        the_led = random.choice(led_list)
+                        self.fade_out_led(the_led, 0.03)
+                        time.sleep(0.4)
+                        self.fade_in_led(the_led, 0.02)
+                        time.sleep(0.4)
+
+        # PWM the LED value from 0 to 1 (or from 1 to 0) with a 0.1 step
+        def fade_in_led(self, led, speed):
+                for i in frange(0.0, 1.0, 0.05):
+                        led.value = i
+                        time.sleep(speed)
+
+        def fade_out_led(self, led, speed):
+                for i in frange(1.0, 0.0, -0.05):
+                        led.value = i
+                        time.sleep(speed)
+
+class RandomLED3(threading.Thread):
+        def __init__(self, threadID, name):
+                threading.Thread.__init__(self)
+                self.threadID = threadID
+                self.name = name
+
+        def run(self):
+                while True:
+                        led_list = [led_2,led_3,led_4,led_5,led_6,led_7,led_8,led_9,led_10,led_11,led_12,led_13,led_14,led_15,led_16,led_17,led_18,led_19,led_20,led_21,led_22,led_23,led_24,led_25,led_26,led_27]
+                        the_led = random.choice(led_list)
+                        self.fade_out_led(the_led, 0.03)
+                        time.sleep(0.5)
+                        self.fade_in_led(the_led, 0.02)
+                        time.sleep(0.5)
+
+        # PWM the LED value from 0 to 1 (or from 1 to 0) with a 0.1 step
+        def fade_in_led(self, led, speed):
+                for i in frange(0.0, 1.0, 0.07):
+                        led.value = i
+                        time.sleep(speed)
+
+        def fade_out_led(self, led, speed):
+                for i in frange(1.0, 0.0, -0.07):
+                        led.value = i
+                        time.sleep(speed)
+                        
+                        class RandomLED4(threading.Thread):
+        def __init__(self, threadID, name):
+                threading.Thread.__init__(self)
+                self.threadID = threadID
+                self.name = name
+
+        def run(self):
+                while True:
+                        led_list = [led_2,led_3,led_4,led_5,led_6,led_7,led_8,led_9,led_10,led_11,led_12,led_13,led_14,led_15,led_16,led_17,led_18,led_19,led_20,led_21,led_22,led_23,led_24,led_25,led_26,led_27]
+                        the_led = random.choice(led_list)
+                        self.fade_out_led(the_led, 0.03)
+                        time.sleep(0.6)
+                        self.fade_in_led(the_led, 0.02)
+                        time.sleep(0.6)
+
+        # PWM the LED value from 0 to 1 (or from 1 to 0) with a 0.1 step
+        def fade_in_led(self, led, speed):
+                for i in frange(0.0, 1.0, 0.1):
+                        led.value = i
+                        time.sleep(speed)
+
+        def fade_out_led(self, led, speed):
+                for i in frange(1.0, 0.0, -0.05):
+                        led.value = i
+                        time.sleep(speed)
+
+class RandomLED5(threading.Thread):
+        def __init__(self, threadID, name):
+                threading.Thread.__init__(self)
+                self.threadID = threadID
+                self.name = name
+
+        def run(self):
+                while True:
+                        led_list = [led_2,led_3,led_4,led_5,led_6,led_7,led_8,led_9,led_10,led_11,led_12,led_13,led_14,led_15,led_16,led_17,led_18,led_19,led_20,led_21,led_22,led_23,led_24,led_25,led_26,led_27]
+                        the_led = random.choice(led_list)
+                        self.fade_out_led(the_led, 0.03)
+                        time.sleep(0.7)
+                        self.fade_in_led(the_led, 0.02)
+                        time.sleep(0.7)
+
+        # PWM the LED value from 0 to 1 (or from 1 to 0) with a 0.1 step
+        def fade_in_led(self, led, speed):
+                for i in frange(0.0, 1.0, 0.03):
+                        led.value = i
+                        time.sleep(speed)
+
+        def fade_out_led(self, led, speed):
+                for i in frange(1.0, 0.0, -0.02):
+                        led.value = i
+                        time.sleep(speed)
+
+# Start independent threads
+# This one lights up a random LED
+thread1 = RandomLED1(1, "Thread-1")
+thread1.start()
+thread2 = RandomLED2(1, "Thread-2")
+thread2.start()
+thread3 = RandomLED3(1, "Thread-3")
+thread3.start()
+thread4 = RandomLED4(1, "Thread-4")
+thread4.start()
+thread5 = RandomLED5(1, "Thread-5")
+thread5.start()
